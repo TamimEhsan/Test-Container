@@ -5,7 +5,24 @@ spring:
   datasource:
     # url: jdbc:tc:postgresql:12.9-alpine:///spring_boot_testcontainers?TC_INITSCRIPT=file:src/test/resources/security-module-db-ddl.sql
     driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
-
+  cloud:
+    vault:
+      enabled: true
+      scheme: http
+      uri: ${VAULT_URI:http://localhost:8200}
+      authentication: ${VAULT_AUTHENTICATION:token}
+      token: ${VAULT_TOKEN}
+      kubernetes:
+        role: internal-app
+      config:
+        lifecycle:
+          enabled: true
+          min-renewal: 10s
+          expiry-threshold: 30s
+      kv:
+        enabled: true
+  config:
+    import: vault://
 
 
 

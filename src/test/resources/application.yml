@@ -1,0 +1,21 @@
+debug: ${DEBUG:false}
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  datasource:
+    # url: jdbc:tc:postgresql:12.9-alpine:///spring_boot_testcontainers?TC_INITSCRIPT=file:src/test/resources/security-module-db-ddl.sql
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+
+
+
+db:
+  url: jdbc:postgresql://localhost:63032/test?loggerLevel=OFF
+  user: test
+  password: test
+
+
+
+
+test:
+  property: testing

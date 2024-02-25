@@ -58,6 +58,7 @@ public class TestContainerTest {
         int b = 2;
         
         Assertions.assertThat(a+b).isEqualTo(3);
+        Assertions.assertThat(a+b+1).isEqualTo(4);
         
     }
 
